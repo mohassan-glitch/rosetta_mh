@@ -683,6 +683,10 @@ sources = {
 		#"view_membrane_protein",
 		#"trial_symdocking",
 	],
+        "pilot/mhassan" : [
+                "bootcamp_jd2",
+                "main",
+        ],
 	"pilot/mike" : [
 		"crossaln",
 		#"minbench",
