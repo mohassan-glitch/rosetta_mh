@@ -372,7 +372,6 @@ MonteCarlo::boltzmann(
 	core::Real const inner_score_delta_over_temperature // = 0
 )
 {
-
 	// Work around a current bug in the pose observer classes..
 #ifdef BOINC_GRAPHICS
 	if ( update_boinc_ ) {
@@ -387,7 +386,6 @@ MonteCarlo::boltzmann(
 
 	return accept; // accept!
 }
-
 //////////////////////////////////////////////////////////
 // See notes above on boltzmann()
 //////////////////////////////////////////////////////////
@@ -400,7 +398,6 @@ MonteCarlo::boltzmann(
 	core::Real const inner_score_temperature_delta // = 0
 )
 {
-
 	// Work around a current bug in the pose observer classes..
 #ifdef BOINC_GRAPHICS
 	if ( update_boinc_ ) {
