@@ -68,6 +68,9 @@ sources = {
 	"antibody/task_operations":[
 		"AntibodyTaskOps",
 	],
+        "bootcamp": [
+		"QueueTests",
+	],
 	"backbone_moves" : [
 		"RandomizeBBByRamaPreProTests",
 	],

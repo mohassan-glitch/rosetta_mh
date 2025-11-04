@@ -8,6 +8,8 @@
 (c) addressed to University of Washington UW TechTransfer, email: license@u.washington.edu.
  * Created by Mosavverul Hassan on 11/3/25. */
 #include <iostream>
+#include <devel/init.hh>
+
 using namespace std;
 
 int main(){
