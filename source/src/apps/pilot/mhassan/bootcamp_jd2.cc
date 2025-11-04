@@ -31,7 +31,7 @@
 #include <basic/options/option_macros.hh>
 
 static basic::Tracer TR("bootcamp_jd2");
-
+using namespace std;
 
 /// @brief Indicate which commandline flags are relevant to this application.
 void register_options() {
@@ -45,19 +45,6 @@ void register_options() {
 /* @brief Program entry point. */
 int main( int argc, char ** argv ) {
 
-    devel::init( argc, argv );
-
-	utility::vector1< std::string > filenames = basic::options::option[ basic::options::OptionKeys::in::file::s ].value();
-
-	if ( filenames.size() > 0 ) {
-
-		std::cout << "You entered: " << filenames[ 1 ] << " as the PDB file to be read" << std::endl;
-	}
-	else {
-
-		std::cout << "You didn’t provide a PDB file with the -in::file::s option" << std::endl;
-		return 1;
-	}
 
 	try {
 		using namespace basic::options;
@@ -67,7 +54,16 @@ int main( int argc, char ** argv ) {
 
 		register_options();
 		devel::init( argc, argv );
+	        utility::vector1< std::string > filenames = basic::options::option[ basic::options::OptionKeys::in::file::s ].value();
 
+	        if ( filenames.size() > 0 ) {
+
+		    std::cout << "You entered: " << filenames[ 1 ] << " as the PDB file to be read" << std::endl;
+	        }
+	        else {
+		std::cout << "You didn’t provide a PDB file with the -in::file::s option" << std::endl;
+		return 1;
+	}
 
 		//protocols::bootcamp::BootcampMoverOP mover_protocol( new protocols::bootcamp::BootcampMover() );
 
@@ -78,6 +74,7 @@ int main( int argc, char ** argv ) {
 		e.display();
 		return -1;
 	}
+        cout<<"Hello World!"<<endl;
 
 	return 0;
 }
