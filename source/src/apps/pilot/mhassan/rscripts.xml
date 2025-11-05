@@ -1,0 +1,12 @@
+<ROSETTASCRIPTS>
+<TASKOPERATIONS>
+</TASKOPERATIONS>
+<FILTERS>
+</FILTERS>
+<MOVERS>
+    <MinMover name="min_mover" bb="1" chi="1" jump="0" tolerance="0.0001"/>
+    <Add movername="min_mover"/>
+</MOVERS>
+<PROTOCOLS>
+</PROTOCOLS>
+</ROSETTASCRIPTS>
