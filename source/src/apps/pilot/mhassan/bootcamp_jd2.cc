@@ -29,9 +29,12 @@
 #include <basic/options/keys/OptionKeys.hh>
 #include <utility/options/OptionCollection.hh>
 #include <basic/options/option_macros.hh>
+#include <utility/pointer/owning_ptr.hh>
+/* Core Headers*/
+#include <core/pose/Pose.hh>              // For PoseOP type
+#include <core/import_pose/import_pose.hh> // For pose_from_file function
 
 static basic::Tracer TR("bootcamp_jd2");
-using namespace std;
 
 /// @brief Indicate which commandline flags are relevant to this application.
 void register_options() {
@@ -44,7 +47,6 @@ void register_options() {
 }
 /* @brief Program entry point. */
 int main( int argc, char ** argv ) {
-
 
 	try {
 		using namespace basic::options;
@@ -59,11 +61,17 @@ int main( int argc, char ** argv ) {
 	        if ( filenames.size() > 0 ) {
 
 		    std::cout << "You entered: " << filenames[ 1 ] << " as the PDB file to be read" << std::endl;
+                    /* Loading the protein structure into  a pose object */
+                    
+                    core::pose::PoseOP mypose = core::import_pose::pose_from_file( filenames [ 1 ] );
+
 	        }
 	        else {
-		std::cout << "You didn’t provide a PDB file with the -in::file::s option" << std::endl;
-		return 1;
-	}
+
+		    std::cout << "You didn’t provide a PDB file with the -in::file::s option" << std::endl;
+		
+                    return 1;
+	        }
 
 		//protocols::bootcamp::BootcampMoverOP mover_protocol( new protocols::bootcamp::BootcampMover() );
 
@@ -74,7 +82,9 @@ int main( int argc, char ** argv ) {
 		e.display();
 		return -1;
 	}
-        cout<<"Hello World!"<<endl;
+
+        std::cout<<"Hello World!"<<std::endl;
+        
 
 	return 0;
 }
