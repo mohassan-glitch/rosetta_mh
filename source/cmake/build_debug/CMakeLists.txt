@@ -1,4 +1,4 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+CMAKE_MINIMUM_REQUIRED(VERSION 4.0.2)
 
 ##############################################################################
 # This file only needs to specify which mode (i.e., release, debug), 
