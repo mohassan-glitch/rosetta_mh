@@ -48,6 +48,12 @@ void register_options() {
 /* @brief Program entry point. */
 int main( int argc, char ** argv ) {
 
+<<<<<<< HEAD
+=======
+/// @brief Program entry point.
+int
+main( int argc, char * argv [] )
+{
 	try {
 		using namespace basic::options;
 		using namespace basic::options::OptionKeys;
