@@ -48,8 +48,6 @@ void register_options() {
 /* @brief Program entry point. */
 int main( int argc, char ** argv ) {
 
-<<<<<<< HEAD
-=======
 /// @brief Program entry point.
 int
 main( int argc, char * argv [] )
