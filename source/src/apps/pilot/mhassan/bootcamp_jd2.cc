@@ -33,6 +33,8 @@
 /* Core Headers*/
 #include <core/pose/Pose.hh>              // For PoseOP type
 #include <core/import_pose/import_pose.hh> // For pose_from_file function
+#include <core/scoring/ScoreFunctionFactory.hh>
+#include <core/scoring/ScoreFunction.hh>
 
 static basic::Tracer TR("bootcamp_jd2");
 
@@ -48,13 +50,12 @@ void register_options() {
 /* @brief Program entry point. */
 int main( int argc, char ** argv ) {
 
-/// @brief Program entry point.
-int
-main( int argc, char * argv [] )
-{
+                /// @brief Program entry point.
 	try {
 		using namespace basic::options;
 		using namespace basic::options::OptionKeys;
+		using namespace core::scoring;
+
 
 		//this won't compile until you fill in brief and default yourself
 
@@ -68,6 +69,12 @@ main( int argc, char * argv [] )
                     /* Loading the protein structure into  a pose object */
                     
                     core::pose::PoseOP mypose = core::import_pose::pose_from_file( filenames [ 1 ] );
+
+                    core::scoring::ScoreFunctionOP sfxn = core::scoring::get_score_function();
+
+                    core::Real score = sfxn->score( *mypose );
+
+                    std::cout<< "Pose Score: " << score << std::endl;
 
 	        }
 	        else {
@@ -86,9 +93,5 @@ main( int argc, char * argv [] )
 		e.display();
 		return -1;
 	}
-
-        std::cout<<"Hello World!"<<std::endl;
-        
-
 	return 0;
 }
